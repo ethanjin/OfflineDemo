@@ -1,5 +1,6 @@
 # OfflineDemo
-把在公司做的项目拆开网络请求部分，本地演示：
+把在公司做的项目拆开网络请求部分
+<p>GIF：
  <p>![](https://github.com/dog047/OfflineDemo/raw/master/OfflineDemo.gif)
  
 ##透明导航栏
