@@ -1,4 +1,5 @@
 # OfflineDemo
+在公司做的项目，已把网络请求拆成本地数据
 <p>GIF：
  <p>![](https://github.com/dog047/OfflineDemo/raw/master/OfflineDemo.gif)
  
