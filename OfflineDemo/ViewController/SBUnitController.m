@@ -12,7 +12,7 @@
 #import "SBUnitContainerView.h"
 #import "SBLessonController.h"
 #import "SBUnitListModel.h"
-
+#import "SBTransitionAnimator.h"
 
 @interface SBUnitController ()<SBUnitContainerViewDelegate>
 @property(nonatomic, strong) SBUnitListModel *model;
@@ -36,7 +36,6 @@
     self.view.backgroundColor = [UIColor purpleColor];
     SBNavigationBar *navBar =(SBNavigationBar*)self.navigationController.navigationBar;
     [navBar SBNavigationBarsetBackgroundAlphaWithPencentage:0 duration:0];
-    
     
     UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"prepare_exercises_back"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
     self.navigationItem.leftBarButtonItems = @[left];
@@ -141,6 +140,7 @@
     view.titleEN=themodel.titleEN;
     [self.navigationController pushViewController:view animated:YES];
 }
+
 
 
 

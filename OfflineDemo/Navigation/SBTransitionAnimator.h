@@ -11,6 +11,7 @@
 
 
 typedef  NS_ENUM (NSInteger,Transition_Animator_Type){
+    Transition_Animator_None,
     Transition_Animator_Push,
     Transition_Animator_Scale,
     Transition_Animator_Lesson

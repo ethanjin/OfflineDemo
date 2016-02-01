@@ -57,7 +57,7 @@
 
 -(NSTimeInterval)getDurantion{
     if (_theType==Transition_Animator_Scale) {
-        return 1;
+        return 0.5f;
     }
     
     

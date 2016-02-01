@@ -12,13 +12,13 @@
 #import "SBMenuViewController.h"
 #import "SBLabel.h"
 #import "SBLessonListModel.h"
-
+#import "SBTransitionAnimator.h"
 
 #define Card_Width  ([UIScreen mainScreen].bounds.size.height>=667 ? 150:([UIScreen mainScreen].bounds.size.height==568 ? 150 :150*0.8f))
 #define Card_Height ([UIScreen mainScreen].bounds.size.height>=667 ? 290:([UIScreen mainScreen].bounds.size.height==568 ? 290 :290*0.8f))
 #define Card_insect ([UIScreen mainScreen].bounds.size.height>667 ? 149:([UIScreen mainScreen].bounds.size.height==667 ? 130 :([UIScreen mainScreen].bounds.size.height==568 ? 103 :103)))
 
-@interface SBLessonController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface SBLessonController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UINavigationControllerDelegate>
 @property(nonatomic, strong) SBLessonListModel *model;
 @property (strong,nonatomic) UICollectionView *myCollectionView;
 @end
@@ -93,6 +93,7 @@
         self.title=_unitTitle;
     }
 
+    self.navigationController.delegate=self;
     self.view.backgroundColor=[UIColor colorWithRed:33/255.0f green:35/255.0f blue:47/255.0f alpha:1.0f];
     _backgroundIMG=[[UIImageView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64)];
     [_backgroundIMG setImage:[UIImage imageNamed:@"lesson_background"]];
@@ -233,6 +234,15 @@
     }
     
         return cell;
+}
+
+
+#pragma mark delegate
+- ( id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
+    if ([fromVC isKindOfClass:[SBLessonController class]] && [toVC isKindOfClass:[SBMenuViewController class]]) {
+        return [SBTransitionAnimator CreateAnimatorWithType:Transition_Animator_Scale];
+    }
+    return nil;
 }
 
 @end
